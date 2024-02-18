@@ -1,6 +1,6 @@
 WITH funnel AS(
 SELECT COUNT(CASE WHEN e1.event_name = 'ITEM_DETAIL' THEN e1.session_id ELSE NULL END) AS pageview_count,
-       COUNT(CASE WHEN e1.event_name = 'ITEM_DETAIL' THEN e2.session_id ELSE NULL END) AS addtocart_10min_count,
+       COUNT(CASE WHEN e1.event_name = 'ITEM_DETAIL' THEN e2.session_id ELSE NULL END) AS addtocart_5min_count,
        COUNT(CASE WHEN e1.event_name = 'ITEM_DETAIL' THEN e3.session_id ELSE NULL END) AS purchase_30min_count
 FROM `fashion-campus-analysis.fashion_campus.click_stream` AS e1
 LEFT JOIN `fashion-campus-analysis.fashion_campus.click_stream` AS e2 ON e1.session_id = e2.session_id
